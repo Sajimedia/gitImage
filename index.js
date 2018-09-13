@@ -12,7 +12,8 @@ io.on('connection', function(socket) {
    console.log('A user connected');
    socket.on('image',(data)=>{
    	var base64Str = data;
-    var path ='uploadIMG'; 
+   	console.log(data);
+    var path ='uploadIMG/'; 
     var optionalObj = {'fileName': 'ssss', 'type':'png'};
     base64ToImage(base64Str,path,optionalObj); 
    })
