@@ -6,7 +6,6 @@
    <body>
    	  <div><img src="" id="show"></div>
       <input type="file" name="file" id="fileload">
-      <button type = "button" name = "button">Let me chat!</button>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src = "/socket.io/socket.io.js"></script>
    	  <script>
@@ -18,7 +17,7 @@
     	  reader.onload = function(){
      	     var dataURL = reader.result;
      	     $('#show').attr('src',dataURL);
-     	     console.log(dataURL);
+     	     socket.emit('image',dataURL);
      		};
     	  reader.readAsDataURL(input.files[0]);	
 		})
