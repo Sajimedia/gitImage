@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>image Upload using Socket io</title>
+   </head>
+   <body>
+   	  <div><img src="" id="show"></div>
+      <input type="file" name="file" id="fileload">
+      <button type = "button" name = "button">Let me chat!</button>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src = "/socket.io/socket.io.js"></script>
+   	  <script>
+       $(function(){
+       	var socket = io();
+       	$("#fileload").on('change',function(e){
+       	  var input = e.target;	
+       	  var reader = new FileReader();
+    	  reader.onload = function(){
+     	     var dataURL = reader.result;
+     	     $('#show').attr('src',dataURL);
+     	     console.log(dataURL);
+     		};
+    	  reader.readAsDataURL(input.files[0]);	
+		})
+       })
+      </script>
+   </body>
+</html>
